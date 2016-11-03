@@ -72,7 +72,17 @@ console.assert(JS.name === "Matt")
 // in the properties object.
 // -----------
 function where(list, properties) {
-
+  return list.filter(function(v){
+    var itemPassed = true;
+    for (key in properties) {
+      if (properties.hasOwnProperty(key)) {
+        if (v[key] !== properties[key]) {
+          itemPassed =false;
+        };
+      };
+    };
+    return itemPassed;
+  });
 }
 
 // tests
